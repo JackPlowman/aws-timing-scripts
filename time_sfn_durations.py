@@ -12,7 +12,7 @@ from os import environ
 import time
 
 # Get configuration for run
-lambda_client = client("stepfunctions")
+sfn_client = client("stepfunctions")
 if "STEP_FUNCTION_ARN" not in environ:
     raise ValueError("STEP_FUNCTION_ARN not found in environment variables")
 
@@ -20,7 +20,7 @@ durations = []
 
 for i in range(10):
     start_time = time.time()
-    response = lambda_client.start_sync_execution(
+    response = sfn_client.start_sync_execution(
         stateMachineArn=environ["STEP_FUNCTION_ARN"]
     )
     end_time = time.time()
