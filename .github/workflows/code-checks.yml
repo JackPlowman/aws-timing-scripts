@@ -118,8 +118,8 @@ jobs:
           sarif_file: results.sarif
           category: zizmor
 
-  upload-ruff-analysis-results:
-    name: Upload Ruff Analysis Results
+  run-python-code-checks:
+    name: Run Python Code Checks
     runs-on: ubuntu-latest
     permissions:
       statuses: write
