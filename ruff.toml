@@ -36,6 +36,8 @@ ignore = [
   "ISC001",  # Ignore due to conflict with Ruff formatter
   "D104",    # Ignore missing docstring in public package
   "D100",    # Ignore missing docstring in public module
+  "D203",    # Ignoring due to incompatibility with Ruff D211
+  "D212",    # Ignoring due to incompatibility with Ruff D213
 ]
 
 fixable = ["ALL"]
