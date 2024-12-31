@@ -22,7 +22,7 @@ durations = []
 
 for counter in range(10):
     start_time = time.time()
-    response = lambda_client.invoke(
+    lambda_client.invoke(
         FunctionName=environ["LAMBDA_NAME"], InvocationType="RequestResponse"
     )
     end_time = time.time()

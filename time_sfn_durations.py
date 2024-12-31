@@ -22,7 +22,7 @@ durations = []
 
 for counter in range(10):
     start_time = time.time()
-    response = sfn_client.start_sync_execution(
+    sfn_client.start_sync_execution(
         stateMachineArn=environ["STEP_FUNCTION_ARN"]
     )
     end_time = time.time()
