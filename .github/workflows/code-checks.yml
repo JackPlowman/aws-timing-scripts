@@ -39,3 +39,18 @@ jobs:
           VALIDATE_PYTHON_RUFF: false
           VALIDATE_PYTHON_PYINK: false
           VALIDATE_NATURAL_LANGUAGE: false
+
+  run-code-limit:
+    name: Run CodeLimit
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: "Run CodeLimit"
+        uses: getcodelimit/codelimit-action@v1
