@@ -1,0 +1,49 @@
+{
+  "version": "0.17.0",
+  "uuid": "429c3f17-235e-4f4b-ad0f-2a1932a9ff2c",
+  "timestamp": "2024-12-31T15:04:28+00:00",
+  "root": "/github/workspace",
+  "repository": {
+    "owner": "JackPlowman",
+    "name": "aws-timing-scripts",
+    "branch": "HEAD"
+  },
+  "codebase": {
+    "totals": {
+      "Python": {
+        "files": 2,
+        "lines_of_code": 0,
+        "functions": 0,
+        "hard_to_maintain": 0,
+        "unmaintainable": 0
+      }
+    },
+    "tree": {
+      "./": {
+        "entries": [
+          "time_lambda_durations.py",
+          "time_sfn_durations.py"
+        ],
+        "profile": [0, 0, 0, 0]
+      }
+    },
+    "files": {
+      "time_lambda_durations.py": {
+        "checksum": "fda1bb4ac1fd154aac40c9250a936d04",
+        "language": "Python",
+        "loc": 0,
+        "profile": [0, 0, 0, 0],
+        "measurements": [
+        ]
+      },
+      "time_sfn_durations.py": {
+        "checksum": "e0e64b2b66beb0f78eb4969170e9b868",
+        "language": "Python",
+        "loc": 0,
+        "profile": [0, 0, 0, 0],
+        "measurements": [
+        ]
+      }
+    }
+  }
+}
