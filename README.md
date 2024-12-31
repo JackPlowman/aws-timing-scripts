@@ -20,3 +20,7 @@ Note: This script will install the required dependencies in a virtual environmen
 
 - `time_lambda_durations.py` - Times the duration of a Lambda function invocation.
 - `time_sfn_durations.py` - Times the duration of a Step Functions execution.
+
+## Contributing
+
+We welcome contributions to the project. Please read the [Contributing Guidelines](docs/CONTRIBUTING.md) for more information.
