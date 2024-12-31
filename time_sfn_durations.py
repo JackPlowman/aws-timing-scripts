@@ -6,19 +6,21 @@
 # ]
 # ///
 
+import time
+from os import environ
+
 import pandas as pd
 from boto3 import client
-from os import environ
-import time
 
 # Get configuration for run
 sfn_client = client("stepfunctions")
 if "STEP_FUNCTION_ARN" not in environ:
-    raise ValueError("STEP_FUNCTION_ARN not found in environment variables")
+    msg = "STEP_FUNCTION_ARN not found in environment variables"
+    raise ValueError(msg)
 
 durations = []
 
-for i in range(10):
+for counter in range(10):
     start_time = time.time()
     response = sfn_client.start_sync_execution(
         stateMachineArn=environ["STEP_FUNCTION_ARN"]
@@ -28,15 +30,15 @@ for i in range(10):
     # to 3 decimal places
     duration = round(duration, 6)
     durations.append(duration)
-    if i == 0:
+    if counter == 0:
         print(f"Cold start duration: {duration} seconds")
     else:
-        print(f"Hot start {i} duration: {duration} seconds")
+        print(f"Hot start {counter} duration: {duration} seconds")
 
 # Store results in a DataFrame
-df = pd.DataFrame(durations, columns=["Duration"])
-print(df)
+dataframe = pd.DataFrame(durations, columns=["Duration"])
+print(dataframe)
 # Average all but first duration
-df = df.iloc[1:]
-avg_duration = df["Duration"].mean()
+dataframe = dataframe.iloc[1:]
+avg_duration = dataframe["Duration"].mean()
 print(f"Average duration: {avg_duration} seconds")
