@@ -36,15 +36,9 @@
 - color: 000000
   name: github_actions
   description: Pull requests that update GitHub Actions code
-- color: 66A615
-  name: just
-  description: Pull requests that update Just code
 - color: 00ff44
   name: shell
   description: Pull requests that update Shell code
-- color: 0373fc
-  name: docker
-  description: Pull requests that update Docker code
 - color: 1900ff
   name: markdown
   description: Pull requests that update Markdown documentation
