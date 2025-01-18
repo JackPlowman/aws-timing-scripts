@@ -108,7 +108,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@v5.1.0
+        uses: astral-sh/setup-uv@v5.2.1
         with:
           version: "latest"
       - name: Run zizmor 🌈
@@ -134,7 +134,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Pinning a minor version of uv
-        uses: astral-sh/setup-uv@v5.1.0
+        uses: astral-sh/setup-uv@v5.2.1
         with:
           version: "0.5.13"
       - name: Install Ruff
