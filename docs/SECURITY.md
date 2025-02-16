@@ -6,7 +6,7 @@ If you discover a security vulnerability within this project, please report it t
 
 To report a vulnerability:
 
-1. Go to the [Security tab](https://github.com/JackPlowman/status-sentinel/security) of the repository.
+1. Go to the [Security tab](https://github.com/JackPlowman/aws-timing-scripts/security) of the repository.
 2. Click on "Report a vulnerability".
 3. Follow the instructions to provide details about the vulnerability.
 
@@ -20,6 +20,6 @@ We release patches for security vulnerabilities in the following versions:
 
 ## Security Updates
 
-We will notify users about security updates through the repository's release notes and the [Security Advisories](https://github.com/JackPlowman/status-sentinel/security/advisories) section.
+We will notify users about security updates through the repository's release notes and the [Security Advisories](https://github.com/JackPlowman/aws-timing-scripts/security/advisories) section.
 
 Thank you for helping to keep this project secure.
