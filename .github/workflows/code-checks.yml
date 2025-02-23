@@ -60,6 +60,20 @@ jobs:
           fail_on_error: true
           filter_mode: nofilter
 
+  check-justfile-format:
+    name: Check Justfile Format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Just
+        uses: extractions/setup-just@v2
+      - name: Check Justfile Format
+        run: just format-check
+
   run-codeql-analysis:
     name: CodeQL Analysis
     runs-on: ubuntu-latest
