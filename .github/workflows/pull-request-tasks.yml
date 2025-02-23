@@ -38,6 +38,8 @@ jobs:
   dependency-review:
     name: Dependency Review
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4.2.2
@@ -46,3 +48,5 @@ jobs:
           persist-credentials: false
       - name: Dependency Review
         uses: actions/dependency-review-action@v4.5.0
+        with:
+          comment-summary-in-pr: on-failure
