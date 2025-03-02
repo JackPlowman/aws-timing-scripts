@@ -2,6 +2,9 @@
 - color: d73a4a
   name: bug
   description: Something isn't working
+- color: fef2c0
+  name: configurations
+  description: Pull requests that update configuration files
 - color: 0075ca
   name: documentation
   description: Improvements or additions to documentation
@@ -30,9 +33,6 @@
   name: wontfix
   description: The issue is expected and will not be fixed
 # Languages
-- color: 2b67c6
-  name: python
-  description: Pull requests that update Python code
 - color: 000000
   name: github_actions
   description: Pull requests that update GitHub Actions code
@@ -42,6 +42,15 @@
 - color: 1900ff
   name: markdown
   description: Pull requests that update Markdown documentation
+- color: 66A615
+  name: just
+  description: Pull requests that update Just code
+- color: 2b67c6
+  name: python
+  description: Pull requests that update Python code
+- color: 00ff1e
+  name: typescript
+  description: Pull requests that update TypeScript code
 # Components
 - color: ff0073
   name: git_hooks
