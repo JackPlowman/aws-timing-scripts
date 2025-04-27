@@ -21,7 +21,7 @@ jobs:
           configuration-path: .github/other-configurations/labeller.yml
           sync-labels: true
       - name: Add Size Labels
-        uses: pascalgn/size-label-action@v0.5.5
+        uses: pascalgn/size-label-action@f8edde36b3be04b4f65dcfead05dc8691b374348 # v0.5.5
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
