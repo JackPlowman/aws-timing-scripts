@@ -61,7 +61,7 @@ jobs:
       matrix:
         language: [python, actions]
     with:
-      language: actions
+      language: ${{ matrix.language }}
 
   run-code-limit:
     name: Run CodeLimit
