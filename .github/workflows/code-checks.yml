@@ -90,8 +90,10 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Set up dependencies
-        uses: ./.github/actions/setup-dependencies
+      - name: Set up UV
+        uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6.0.1
+      - name: Install Ruff
+        run: uv tool install ruff
       - name: Generate Ruff Sarif
         run: uv run ruff check .
         env:
@@ -137,7 +139,7 @@ jobs:
           persist-credentials: false
       - name: Set up UV
         uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6.0.1
-      - name: Install Ruff
+      - name: Install Ty
         run: uv tool install ty
       - name: Check Python Code Types (ty) Checks
         run: uv run ty check .
