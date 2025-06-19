@@ -141,6 +141,10 @@ jobs:
         uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6.0.1
       - name: Install Ty
         run: uv tool install ty
+      - name: Sync Environment (time_lambda_durations.py)
+        run: uv sync --script time_lambda_durations.py
+      - name: Sync Environment (time_sfn_durations.py)
+        run: uv sync --script time_sfn_durations.py
       - name: Check Python Code Types (ty) Checks
         run: uv run ty check .
 
