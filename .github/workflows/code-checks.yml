@@ -45,6 +45,7 @@ jobs:
     name: Common Code Checks
     permissions:
       contents: read
+      actions: read
       pull-requests: write
       security-events: write
     uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@9aeb375514588fbc71eae2823e3216d43d300501 # v2025.06.16.01
