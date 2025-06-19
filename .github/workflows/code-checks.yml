@@ -91,7 +91,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6.0.1
+        uses: astral-sh/setup-uv@a02a550bdd3185dba2ebb6aa98d77047ce54ad21 # v6.2.1
       - name: Install Ruff
         run: uv tool install ruff
       - name: Generate Ruff Sarif
@@ -120,7 +120,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6.0.1
+        uses: astral-sh/setup-uv@a02a550bdd3185dba2ebb6aa98d77047ce54ad21 # v6.2.1
       - name: Install Ruff
         run: uv tool install ruff
       - name: Check Python Code Format (Ruff)
@@ -138,7 +138,7 @@ jobs:
   #         fetch-depth: 0
   #         persist-credentials: false
   #     - name: Set up UV
-  #       uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6.0.1
+  #       uses: astral-sh/setup-uv@a02a550bdd3185dba2ebb6aa98d77047ce54ad21 # v6.2.1
   #     - name: Install Ty
   #       run: uv tool install ty
   #     - name: Sync Environment (time_lambda_durations.py)
@@ -161,7 +161,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6.0.1
+        uses: astral-sh/setup-uv@a02a550bdd3185dba2ebb6aa98d77047ce54ad21 # v6.2.1
       - name: Install Vulture
         run: uv tool install vulture
       - name: Check Python Code for Dead Code (Vulture)
