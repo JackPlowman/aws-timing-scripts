@@ -133,9 +133,9 @@ jobs:
       - name: Install Ty
         run: uv tool install ty
       - name: Sync Environment (time_lambda_durations.py)
-        run: uv sync --script time_lambda_durations.py
+        run: uv sync --script time_lambda_durations.py --active
       - name: Sync Environment (time_sfn_durations.py)
-        run: uv sync --script time_sfn_durations.py
+        run: uv sync --script time_sfn_durations.py --active
       - name: Check Python Code Types (ty) Checks
         run: uv tool run ty check .
 
