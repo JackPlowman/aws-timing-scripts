@@ -4,8 +4,7 @@ on:
   pull_request:
     types: [opened, edited, synchronize]
 
-permissions:
-  pull-requests: read
+permissions: {}
 
 jobs:
   common-pull-request-tasks:
