@@ -52,7 +52,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@557e51de59eb14aaaba2ed9621916900a91d50c6 # v6.6.1
+        uses: astral-sh/setup-uv@2ddd2b9cb38ad8efd50337e8ab201519a34c9f24 # v7.1.1
       - name: Install Ruff
         run: uv tool install ruff
       - name: Generate Ruff Sarif
@@ -81,7 +81,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@557e51de59eb14aaaba2ed9621916900a91d50c6 # v6.6.1
+        uses: astral-sh/setup-uv@2ddd2b9cb38ad8efd50337e8ab201519a34c9f24 # v7.1.1
       - name: Install Ruff
         run: uv tool install ruff
       - name: Check Python Code Format (Ruff)
@@ -99,7 +99,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@557e51de59eb14aaaba2ed9621916900a91d50c6 # v6.6.1
+        uses: astral-sh/setup-uv@2ddd2b9cb38ad8efd50337e8ab201519a34c9f24 # v7.1.1
         with:
           activate-environment: true
       - name: Install Ty
@@ -124,7 +124,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@557e51de59eb14aaaba2ed9621916900a91d50c6 # v6.6.1
+        uses: astral-sh/setup-uv@2ddd2b9cb38ad8efd50337e8ab201519a34c9f24 # v7.1.1
       - name: Install Vulture
         run: uv tool install vulture
       - name: Check Python Code for Dead Code (Vulture)
