@@ -18,7 +18,7 @@ if "STEP_FUNCTION_ARN" not in environ:
     msg = "STEP_FUNCTION_ARN not found in environment variables"
     raise ValueError(msg)
 
-durations = []
+durations: list[float] = []
 
 for counter in range(10):
     start_time = time.time()
@@ -34,7 +34,7 @@ for counter in range(10):
         print(f"Hot start {counter} duration: {duration} seconds")
 
 # Store results in a DataFrame
-dataframe = pd.DataFrame(durations, columns=["Duration"])
+dataframe = pd.DataFrame({"Duration": durations})
 print(dataframe)
 # Average all but first duration
 dataframe = dataframe.iloc[1:]
