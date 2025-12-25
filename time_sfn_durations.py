@@ -34,7 +34,7 @@ for counter in range(10):
         print(f"Hot start {counter} duration: {duration} seconds")
 
 # Store results in a DataFrame
-dataframe = pd.DataFrame(durations, columns=["Duration"])
+dataframe = pd.DataFrame({"Duration": durations})
 print(dataframe)
 # Average all but first duration
 dataframe = dataframe.iloc[1:]
