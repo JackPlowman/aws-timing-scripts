@@ -18,7 +18,7 @@ if "STEP_FUNCTION_ARN" not in environ:
     msg = "STEP_FUNCTION_ARN not found in environment variables"
     raise ValueError(msg)
 
-durations = []
+durations: list[float] = []
 
 for counter in range(10):
     start_time = time.time()

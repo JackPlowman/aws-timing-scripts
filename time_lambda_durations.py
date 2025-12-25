@@ -18,7 +18,7 @@ if "LAMBDA_NAME" not in environ:
     msg = "LAMBDA_NAME not found in environment variables"
     raise ValueError(msg)
 
-durations = []
+durations: list[float] = []
 
 for counter in range(10):
     start_time = time.time()
