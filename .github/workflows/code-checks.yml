@@ -10,7 +10,6 @@ on:
 
 permissions:
   contents: read
-  packages: read
 
 env:
   FORCE_COLOR: 1
@@ -20,9 +19,9 @@ jobs:
     name: Common Code Checks
     permissions:
       contents: read
-      actions: read
-      pull-requests: write
-      security-events: write
+      actions: read # Allow the workflow to read actions metadata
+      pull-requests: write # Allow the workflow to create and modify pull request comments
+      security-events: write # Allow the workflow to upload analysis results
     uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@3ddc61ad19cda4cdf8a593646d90bbd48f788dfd # v2025.09.04.03
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -43,8 +42,7 @@ jobs:
     name: Run Python Lint Checks
     runs-on: ubuntu-latest
     permissions:
-      statuses: write
-      security-events: write
+      security-events: write # Allow the workflow to upload analysis results
     steps:
       - name: Checkout Repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -114,9 +112,6 @@ jobs:
   run-python-dead-code-checks:
     name: Run Python Dead Code Checks
     runs-on: ubuntu-latest
-    permissions:
-      statuses: write
-      security-events: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
