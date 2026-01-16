@@ -26,7 +26,7 @@ jobs:
       actions: read # Allow the workflow to read actions metadata
       pull-requests: write # Allow the workflow to create and modify pull request comments
       security-events: write # Allow the workflow to upload analysis results
-    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@61df2c978dadbc17ea3f190f703531f0dcce6db5 # v2025.12.30.04
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@b3a5102da262cac160c035d00155ae0a2d8f9428 # v2026.01.16.01
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -38,7 +38,7 @@ jobs:
     strategy:
       matrix:
         language: [actions, python]
-    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@61df2c978dadbc17ea3f190f703531f0dcce6db5 # v2025.12.30.04
+    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@b3a5102da262cac160c035d00155ae0a2d8f9428 # v2026.01.16.01
     with:
       language: ${{ matrix.language }}
 
@@ -54,7 +54,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
       - name: Install Ruff
         run: uv tool install ruff
       - name: Generate Ruff Sarif
@@ -64,7 +64,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@5d4e8d1aca955e8d8589aabd499c5cae939e33c7 # v4.31.9
+        uses: github/codeql-action/upload-sarif@cdefb33c0f6224e58673d9004f47f7cb3e328b89 # v4.31.10
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -83,7 +83,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
       - name: Install Ruff
         run: uv tool install ruff
       - name: Check Python Code Format (Ruff)
@@ -101,7 +101,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
         with:
           activate-environment: true
       - name: Install Ty
@@ -123,7 +123,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
+        uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
       - name: Install Vulture
         run: uv tool install vulture
       - name: Check Python Code for Dead Code (Vulture)
