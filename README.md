@@ -4,14 +4,14 @@ This repository contains a collection of scripts that can be used to time variou
 
 ## Prerequisites
 
-`uv` is required to run the scripts.
+Python 3.15 and `uv` are required to run the scripts.
 
 ## Running the scripts
 
 To run a script, use the following command:
 
 ```bash
-uv run timing_scripts/<script_name>.py
+uv run --locked <script_name>.py
 ```
 
 Note: This script will install the required dependencies in a virtual environment.
