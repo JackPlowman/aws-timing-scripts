@@ -1,8 +1,9 @@
+# Copyright (c) 2026 Jack Plowman
 # /// script
-# requires-python = "~=3.14"
+# requires-python = "~=3.15.0"
 # dependencies = [
-#     "boto3",
-#     "pandas",
+#     "boto3==1.43.118",
+#     "pandas==3.1.0",
 # ]
 # ///
 

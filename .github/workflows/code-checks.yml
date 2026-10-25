@@ -26,7 +26,7 @@ jobs:
       actions: read # Allow the workflow to read actions metadata
       pull-requests: write # Allow the workflow to create and modify pull request comments
       security-events: write # Allow the workflow to upload analysis results
-    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@9b05cbf77da4cc8d3238499a28d179c41cbcf6ac # v2026.02.14.01
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@f82d61d53648ae90f8a0406c0f4bbf1aef332337 # v2026.10.25.01
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -38,7 +38,7 @@ jobs:
     strategy:
       matrix:
         language: [actions, python]
-    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@9b05cbf77da4cc8d3238499a28d179c41cbcf6ac # v2026.02.14.01
+    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@f82d61d53648ae90f8a0406c0f4bbf1aef332337 # v2026.10.25.01
     with:
       language: ${{ matrix.language }}
 
@@ -49,27 +49,27 @@ jobs:
       security-events: write # Allow the workflow to upload analysis results
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
       - name: Install Ruff
-        run: uv tool install ruff
+        run: uv tool install ruff==0.17.2
       - name: Generate Ruff Sarif
-        run: uv run ruff check .
+        run: uv tool run ruff check .
         env:
           RUFF_OUTPUT_FORMAT: "sarif"
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@9e907b5e64f6b83e7804b09294d44122997950d6 # v4.32.3
+        uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
       - name: Check Python Code Linting (Ruff)
-        run: uv run ruff check .
+        run: uv tool run ruff check .
         env:
           RUFF_OUTPUT_FORMAT: "github"
 
@@ -78,16 +78,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
       - name: Install Ruff
-        run: uv tool install ruff
+        run: uv tool install ruff==0.17.2
       - name: Check Python Code Format (Ruff)
-        run: uv run ruff format --check .
+        run: uv tool run ruff format --check .
         env:
           RUFF_OUTPUT_FORMAT: "github"
 
@@ -96,20 +96,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
         with:
+          python-version: "3.15"
           activate-environment: true
       - name: Install Ty
-        run: uv tool install ty
+        run: uv tool install ty==0.0.91
       - name: Sync Environment (time_lambda_durations.py)
-        run: uv sync --script time_lambda_durations.py --active
+        run: uv sync --script time_lambda_durations.py --active --locked
       - name: Sync Environment (time_sfn_durations.py)
-        run: uv sync --script time_sfn_durations.py --active
+        run: uv sync --script time_sfn_durations.py --active --locked
       - name: Check Python Code Types (ty) Checks
         run: uv tool run ty check .
 
@@ -118,13 +119,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up UV
-        uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
       - name: Install Vulture
-        run: uv tool install vulture
+        run: uv tool install vulture==2.16
       - name: Check Python Code for Dead Code (Vulture)
-        run: uv run vulture .
+        run: uv tool run vulture time_lambda_durations.py time_sfn_durations.py
